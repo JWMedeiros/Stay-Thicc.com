@@ -1,0 +1,30 @@
+{
+  "name": "Stay-Thicc.com",
+  "version": "1.0.0",
+  "description": "A website for users who want to stay fit and stay thicc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JWMedeiros/Stay-Thicc.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JWMedeiros/Stay-Thicc.com/issues"
+  },
+  "homepage": "https://github.com/JWMedeiros/Stay-Thicc.com#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.18.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.1"
+  }
+}

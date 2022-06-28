@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS thicc_db;
+CREATE DATABASE thicc_db;
