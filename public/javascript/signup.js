@@ -9,10 +9,10 @@ const signupFormHandler = async function (event) {
     fetch("/api/user", {
         method: "post",
         body: JSON.stringify({
-            firstname: firstnameEl.value,
-            lastname: lastnameEl.value,
+            first_name: firstnameEl.value,
+            last_name: lastnameEl.value,
             email: emailEl.value,
-            weight: weightEl.value,
+            user_weight: weightEl.value,
             password: passwordEl.value
 
         }),
