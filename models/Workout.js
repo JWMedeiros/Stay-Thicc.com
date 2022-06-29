@@ -12,6 +12,10 @@ Workout.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     weekday: {
         type: DataTypes.STRING,
         allowNull: false,

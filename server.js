@@ -31,6 +31,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(require('./controllers/'));
 
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/404.html'))
+);
+
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
     sequelize.sync({ force: false });
