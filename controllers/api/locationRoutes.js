@@ -15,7 +15,7 @@ router.get('/', withAuth, async(req, res) => {
       // Pass serialized data and session flag into template
       res.render('location', { 
         locations, 
-        logged_in: req.session.logged_in 
+        loggedIn: req.session.loggedIn 
       });
     } catch (err) {
       res.status(500).json(err);
@@ -37,7 +37,7 @@ router.get('/:city', withAuth, async(req, res) => {
       // Pass serialized data and session flag into template
       res.render('location', { 
         locations, 
-        logged_in: req.session.logged_in 
+        loggedIn: req.session.loggedIn 
       });
     } catch (err) {
       res.status(500).json(err);
@@ -59,7 +59,7 @@ router.get('/:name', withAuth, async(req, res) => {
       // Pass serialized data and session flag into template
       res.render('location', { 
         locations, 
-        logged_in: req.session.logged_in 
+        loggedIn: req.session.loggedIn 
       });
     } catch (err) {
       res.status(500).json(err);
@@ -69,10 +69,9 @@ router.get('/:name', withAuth, async(req, res) => {
 router.get('/mylocation', withAuth, async(req, res) => {
     try {
       // Get location for user
-      const locationData = await Location.findAll({
-        where:{
-            location_id:req.session.location_id
-        }
+      const locationData = await User.findByPk(req.session.userId, {
+        attributes: { exclude: ['password','id','email','first_name','last_name','user_weight','workout_id'] },
+        include: [{ model: Location }],
       });
   
       // Serialize data so the template can read it
@@ -81,7 +80,7 @@ router.get('/mylocation', withAuth, async(req, res) => {
       // Pass serialized data and session flag into template
       res.render('location', { 
         locations, 
-        logged_in: req.session.logged_in 
+        loggedIn: req.session.loggedIn 
       });
     } catch (err) {
       res.status(500).json(err);
