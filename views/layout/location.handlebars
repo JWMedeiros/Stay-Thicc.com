@@ -1,0 +1,67 @@
+<!--Page needed to render location data if the user is logged in-->
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stay Thicc</title>
+    <!-- Bootstrap CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/CSS/style.css" />
+  </head>
+
+  <body class="flex-column min-100-vh">
+    <header class="location-header">
+      <!--Update this-->
+      <h1 class="app-title"><a href="/">Stay Thicc</a></h1>
+      <nav class="navbar">
+        <ul>
+          <li class="li-inline nav-item"><a href="/workout">Workout</a></li>
+          <li class="li-inline nav-item"><a
+              href="#"
+              id="logout-link"
+            >Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--Section form for search parameters-->
+    <section id="loc-search">
+      <form>
+        <button type="button" class="btn btn-dark">All Available Locations</button>
+        <button type="button" class="btn btn-dark">My Current Location</button>
+        <div class="form-group">
+          <label for="field1">Search by City or Gym Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="field1"
+            aria-describedby="fieldHelp"
+            placeholder="Search"
+          />
+          <small id="fieldHelp" class="form-text text-muted">Please enter a city or gym Name</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </section>
+
+    <!--Container for Location Cards-->
+    <section id="locContainer">
+
+    </section>
+
+    <footer class="flex-row justify-center">
+      &copy;
+      <script>document.write(new Date().getFullYear());</script>
+      John, Patrick and Wingky
+    </footer>
+  </body>
+
+</html>
+<script src="/javascript/logout.js"></script>
