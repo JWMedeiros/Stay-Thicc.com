@@ -22,16 +22,17 @@
       <h1 class="app-title"><a href="/">Stay Thicc</a></h1>
       <nav class="navbar">
         <ul>
-          <li class="li-inline nav-item"><a href="/workout">Workout</a></li>
-          <li class="li-inline nav-item"><a
-              href="#"
-              id="logout-link"
-            >Logout</a></li>
+          <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
+          {{#if loggedIn}}
+          <li class="li-inline nav-item"><a href="/api/workout">Workout</a></li>
+          <li class="li-inline nav-item"><a href="/api/user">User Page</a></li>
+          {{/if}}
         </ul>
       </nav>
     </header>
 
     <!--Section form for search parameters-->
+    {{#if loggedIn}}
     <section id="loc-search">
       <form>
         <button type="button" class="btn btn-dark">All Available Locations</button>
@@ -45,7 +46,7 @@
             aria-describedby="fieldHelp"
             placeholder="Search"
           />
-          <small id="fieldHelp" class="form-text text-muted">Please enter a city or gym Name</small>
+          <small id="fieldHelp" class="form-text text-muted">Please enter a city or gym name</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -53,8 +54,15 @@
 
     <!--Container for Location Cards-->
     <section id="locContainer">
-
+        {{#each locations as |location|}}
+            <div class="location col-md-4">
+                <h3>{{location.name}}</h3>
+                <p>located in: {{location.city}} at: {{location.address}}</p>
+        {{/each}}
     </section>
+    {{else}}
+    <h2>Please Login to the website to view locations!</h2>
+    {{/if}}
 
     <footer class="flex-row justify-center">
       &copy;
@@ -64,4 +72,4 @@
   </body>
 
 </html>
-<script src="/javascript/logout.js"></script>
+<script src="../../public/javascript/locations.js"></script>

@@ -29,7 +29,7 @@ router.get('/:city', withAuth, async (req, res) => {
     // Get all locations with passed City Name
     const locationData = await Location.findAll({
       where: {
-        city: req.params.city,
+        city: req.body.city,
       },
     });
 
@@ -53,7 +53,7 @@ router.get('/:name', withAuth, async (req, res) => {
     // Get all locations based off of name
     const locationData = await Location.findAll({
       where: {
-        name: req.params.name,
+        name: req.body.name,
       },
     });
 
