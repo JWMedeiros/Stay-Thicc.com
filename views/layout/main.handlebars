@@ -14,11 +14,18 @@
 <body class="flex-column min-100-vh">
     <header class="home-header">
         <h1 class="app-title"><a href="/">Stay Thicc</a></h1>
+
         <nav class="navbar">
             <ul>
-                <li class="li-inline nav-item"><a href="/workout">Workout</a></li>
-                <li class="li-inline nav-item"><a href="/login">Login</a></li>
-                <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
+                {{#if loggedIn}}
+                <li class="li-inline nav-item"><a class="nav-link" href="/workout">Workout</a></li>
+                <li class="li-inline nav-item"><a class="nav-link" href="/location">Location</a></li>
+                <li class="li-inline nav-item"><a class="nav-link" href="/user">User Profile</a></li>
+                <li class="li-inline nav-item"><a class="nav-link" href="#" id="logout-link">Logout</a></li>
+                <h3>Welcome back!!</h3>
+                {{else}}
+                <li class="li-inline nav-item"><a class="nav-link" href="/login">Login</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>
@@ -26,6 +33,9 @@
 
     <img src="images/stayThicc.png" alt="stayThicc">
 
+    <main>
+        {{{body}}}
+    </main>
 
     <footer class="flex-row justify-center">
         &copy;
@@ -34,4 +44,6 @@
 </body>
 
 </html>
+{{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
+{{/if}}
