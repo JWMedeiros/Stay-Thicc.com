@@ -29,31 +29,7 @@ router.get('/:city', withAuth, async (req, res) => {
     // Get all locations with passed City Name
     const locationData = await Location.findAll({
       where: {
-        city: req.body.city,
-      },
-    });
-
-    // Serialize data so the template can read it
-    const locations = locationData.map((location) =>
-      location.get({ plain: true })
-    );
-
-    // Pass serialized data and session flag into template
-    res.render('location', {
-      locations,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/:name', withAuth, async (req, res) => {
-  try {
-    // Get all locations based off of name
-    const locationData = await Location.findAll({
-      where: {
-        name: req.body.name,
+        city: req.params.city,
       },
     });
 
@@ -84,7 +60,6 @@ router.get('/mylocation', withAuth, async (req, res) => {
           'first_name',
           'last_name',
           'user_weight',
-          'workout_id',
         ],
       },
       include: [{ model: Location }],
@@ -104,3 +79,5 @@ router.get('/mylocation', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;

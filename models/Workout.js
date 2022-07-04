@@ -13,28 +13,28 @@ Workout.init(
       autoIncrement: true,
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     weekday: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     type: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     workout_weight: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     reps: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     sets: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
