@@ -43,20 +43,6 @@ User.init(
     user_weight: {
       type: DataTypes.FLOAT,
     },
-    workout_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'workout',
-        key: 'id',
-      },
-    },
-    location_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'location',
-        key: 'id',
-      },
-    },
   },
   {
     //Might have to change the names here:
