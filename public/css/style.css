@@ -1,0 +1,41 @@
+:root {
+    --primary: #F9ED69;
+    --secondary: #F08A5D;
+    --tertiary: #B83B5E;
+    --dark: #6A2C70;
+    --border-radius: 0.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+    color: var(--secondary);
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    margin: 0;
+    color: var(--tertiary);
+    line-height: 1.25;
+    letter-spacing: 1px;
+}
+
+h2 a:visited {
+    color: var(--tertiary);
+}
+
+h2 a {
+    color: var(--primary);
+}
