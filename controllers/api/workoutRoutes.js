@@ -4,6 +4,9 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
+    console.log('\n\n');
+    console.log(req.session.loggedIn);
+    console.log(req.session.userId);
     // Get all workouts
     const workoutData = await Workout.findAll({
       where: {

@@ -25,28 +25,31 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+  console.log('/api/user/login');
   User.findOne({
     where: {
       email: req.body.email,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
+      console.log('invalid user ID');
       res.status(400).json({ message: 'No user account found!' });
       return;
     }
-
+    console.log(req.body.password);
     const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
+      console.log('badd password');
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-
+    console.log('User Found');
     req.session.save(() => {
       req.session.userId = dbUserData.id;
       req.session.email = dbUserData.email;
       req.session.loggedIn = true;
-
+      console.log('stuff12345');
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   });

@@ -1,0 +1,22 @@
+<!--Section form for search parameters-->
+{{#if loggedIn}}
+<button type="button" id = "workCreate" class="btn btn-dark create">Add a Workout</button>
+
+<!--Container for Location Cards-->
+<section id="workContainer">
+    {{#each workouts as |workout|}}
+        <div class="workout col-md-4">
+            <h3>{{workout.name}}</h3>
+            <p>{{workout.weekday}}</p> 
+            <p>{{workout.type}}</p>
+            <p>{{workout.workout_weight}}</p>
+            <p>{{workout.sets}}</p>
+            <p>{{workout.reps}}</p>
+            <button class='{{workout.id}} update'>Update</button>
+            <button class='{{workout.id}} delete'>Delete</button>
+    {{/each}}
+</section>
+    {{else}}
+        <h2>Please Login to the website to view your workouts!</h2>
+    {{/if}}
+  <script src="/javascript/workouts.js"></script>

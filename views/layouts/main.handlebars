@@ -30,9 +30,6 @@
         </nav>
     </header>
 
-
-    <img src="images/stayThicc.png" alt="stayThicc">
-
     <main>
         {{{body}}}
     </main>
@@ -41,9 +38,9 @@
         &copy;
         <script>document.write(new Date().getFullYear());</script> John, Patrick and Wingky
     </footer>
+    {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
-{{#if loggedIn}}
-<script src="/javascript/logout.js"></script>
-{{/if}}
