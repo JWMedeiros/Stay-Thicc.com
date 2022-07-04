@@ -1,11 +1,15 @@
 const router = require('express').Router();
 
+router.get('/', (req, res) => {
+  res.render('landing');
+});
+
 router.get('/login', (req, res) => {
+  console.log('sadfadfadf');
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-
   res.render('login');
 });
 
