@@ -2,18 +2,11 @@ const User = require('./User');
 const Workout = require('./Workout');
 const Location = require('./Location');
 
-//User belongsTo Location
-Location.belongsTo(User, {
-  foreignKey: 'user_id',
-});
 
-User.hasOne(Location, {
-  foreignKey: 'user_id',
-});
-
-//Locations have many Users
+//User can have many Workouts
 User.hasMany(Workout, {
   foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 });
 
 Workout.belongsTo(User, {

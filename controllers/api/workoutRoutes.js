@@ -55,7 +55,8 @@ router.post('/', withAuth, async (req, res) => {
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     //Destroy specified workout
-    let result=await Workout.destroy({
+    //let result=
+    await Workout.destroy({
       where:{
         id:req.params.id,
       },
