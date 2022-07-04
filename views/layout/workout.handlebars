@@ -1,5 +1,4 @@
-<!--Page needed to render location data if the user is logged in-->
-
+<!--Page needed to render workout if the user is logged in-->
 <html lang="en">
 
   <head>
@@ -24,7 +23,7 @@
         <ul>
           <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
           {{#if loggedIn}}
-          <li class="li-inline nav-item"><a href="/workout">Workout</a></li>
+          <li class="li-inline nav-item"><a href="/location">Locations Page</a></li>
           <li class="li-inline nav-item"><a href="/user">User Page</a></li>
           {{/if}}
         </ul>
@@ -33,34 +32,24 @@
 
     <!--Section form for search parameters-->
     {{#if loggedIn}}
-    <section id="loc-search">
-        <button type="button" id = "allLoc" class="btn btn-dark">All Available Locations</button>
-      <form>
-        <div class="form-group">
-          <label for="field1">Search by City</label>
-          <input
-            type="text"
-            class="form-control"
-            id="field1"
-            aria-describedby="fieldHelp"
-            placeholder="Search"
-          />
-          <small id="fieldHelp" class="form-text text-muted">Please enter a city name</small>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </section>
+    <button type="button" id = "workCreate" class="btn btn-dark create">Add a Workout</button>
 
     <!--Container for Location Cards-->
-    <section id="locContainer">
-        {{#each locations as |location|}}
-            <div class="location col-md-4">
-                <h3>{{location.name}}</h3>
-                <p>located in: {{location.city}} at: {{location.address}}</p>
+    <section id="workContainer">
+        {{#each workouts as |workout|}}
+            <div class="workout col-md-4">
+                <h3>{{workout.name}}</h3>
+                <p>{{workout.weekday}}</p> 
+                <p>{{workout.type}}</p>
+                <p>{{workout.workout_weight}}</p>
+                <p>{{workout.sets}}</p>
+                <p>{{workout.reps}}</p>
+                <button class='{{workout.id}} update'>Update</button>
+                <button class='{{workout.id}} delete'>Delete</button>
         {{/each}}
     </section>
         {{else}}
-            <h2>Please Login to the website to view locations!</h2>
+            <h2>Please Login to the website to view your workouts!</h2>
         {{/if}}
 
     <footer class="flex-row justify-center">
@@ -71,4 +60,4 @@
   </body>
 
 </html>
-<script src="../../public/javascript/locations.js"></script>
+<script src="../../public/javascript/workouts.js"></script>

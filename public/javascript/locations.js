@@ -5,10 +5,6 @@ async function allLocations(){
   location.replace('/');
 }
 
-async function myLocation(){
-  location.replace ('/mylocation');
-}
-
 const locationFormHandler = async function (event) {
   event.preventDefault();
 
