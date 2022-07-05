@@ -18,10 +18,10 @@
         <nav class="navbar">
             <ul>
                 {{#if loggedIn}}
-                <li class="li-inline nav-item"><a class="nav-link" href="/workout">Workout</a></li>
-                <li class="li-inline nav-item"><a class="nav-link" href="/location">Location</a></li>
-                <li class="li-inline nav-item"><a class="nav-link" href="/user">User Profile</a></li>
-                <li class="li-inline nav-item"><a class="nav-link" href="#" id="logout-link">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="/workout">Workout</a></li>
+                <li class="nav-item"><a class="nav-link" href="/location">Location</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user">User Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="logout-link">Logout</a></li>
                 <h3>Welcome back!!</h3>
                 {{else}}
                 <li class="li-inline nav-item"><a class="nav-link" href="/login">Login</a></li>
@@ -39,7 +39,7 @@
         <script>document.write(new Date().getFullYear());</script> John, Patrick and Wingky
     </footer>
     {{#if loggedIn}}
-        <script src="/javascript/logout.js"></script>
+    <script src="/javascript/logout.js"></script>
     {{/if}}
 </body>
 
