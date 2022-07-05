@@ -1,13 +1,14 @@
-const addFormHandler = async function (event){
+const changeFormHandler = async function (event){
   event.preventDefault();
+  let id=workout.id;
   let workName = document.querySelector('#workName');
   let workType = document.querySelector('#workType');
   let workDay = document.querySelector('#workDay');
   let workWeight = document.querySelector('#workWeight');
   let workSets = document.querySelector('#workSets');
   let workReps = document.querySelector('#workReps');
-  await fetch('/api/workout', {
-    method: 'post',
+  fetch(`/api/workout/:${id}`, {
+    method: 'put',
     body: JSON.stringify({
       name: workName.value,
       weekday: workDay.value,
@@ -18,9 +19,14 @@ const addFormHandler = async function (event){
     }),
     headers: { 'Content-Type': 'application/json' },
   })
+    .then(function (res){
+      return res.json();
+    })
+    .then(function () {
+      //Jump to the workout page
+      document.location.replace('/workout');
+    })
     .catch((err) => console.log('you messed up'+err));
-  console.log('\n\n\n\n\n');
-  document.location.replace('/workout');
 };
 
-document.querySelector('#addForm').addEventListener('submit', addFormHandler);
+document.querySelector('#changeForm').addEventListener('submit', changeFormHandler);

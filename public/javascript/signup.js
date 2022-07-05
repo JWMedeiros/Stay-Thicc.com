@@ -19,7 +19,7 @@ const signupFormHandler = async function (event) {
   })
     .then(function () {
       // after log in, it will jump to which routes?
-      document.location.replace('/api/workout');
+      document.location.replace('/workout');
     })
     .catch((err) => console.log(err));
 };
