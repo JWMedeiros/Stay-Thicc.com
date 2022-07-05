@@ -39,3 +39,61 @@ h2 a:visited {
 h2 a {
     color: var(--primary);
 }
+
+.btn {
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 6px auto;
+    width: 30%;
+    display: block;
+    margin: 5px auto;
+    border-radius: var(--border-radius);
+    color: var(--primary);
+    border: none;
+    outline: none;
+    background-color: var(--secondary);
+}
+
+.btn:hover {
+    color: var(--primary);
+    background-color: var(--dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+.nav-item {
+    float: right;
+    margin-right: 10%;
+}
+
+
+
+
+.nav-item:hover {
+    color: var(--dark);
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+footer {
+
+    text-align: center;
+    color: var(--secondary);
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+
+}
