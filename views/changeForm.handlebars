@@ -1,7 +1,7 @@
 {{#if loggedIn}}
-    {{#if workout.id}}
+    {{#if id}}
+        <h3 id="header">Changing Workout ID: {{id}}</h3>
         <form id="changeForm">
-            <h3>Changing Workout ID: {{workout.id}}</h3>
             <div class="form-group">
                 <label for="workName">Workout Name</label>
                 <input type="text" class="form-control" id="workName" placeholder="Workout Name">

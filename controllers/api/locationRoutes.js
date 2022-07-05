@@ -19,7 +19,6 @@ router.get('/:city', withAuth, async (req, res) => {
     );
 
     // Pass serialized data and session flag into template
-    console.log('\n\n\n'+locations);
     res.render('location', {
       locations,
       loggedIn: req.session.loggedIn,

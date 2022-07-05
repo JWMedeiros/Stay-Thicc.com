@@ -1,12 +1,14 @@
 const changeFormHandler = async function (event){
   event.preventDefault();
-  let id=workout.id;
+  let id=document.querySelector('#header');
   let workName = document.querySelector('#workName');
   let workType = document.querySelector('#workType');
   let workDay = document.querySelector('#workDay');
   let workWeight = document.querySelector('#workWeight');
   let workSets = document.querySelector('#workSets');
   let workReps = document.querySelector('#workReps');
+  id=parseInt(id.textContent.slice(20));
+  console.log(id);
   fetch(`/api/workout/:${id}`, {
     method: 'put',
     body: JSON.stringify({

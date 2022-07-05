@@ -53,11 +53,12 @@ router.get('/addWorkout',(req,res)=>{
   });
 });
 
-// router.get(`/changeWorkout/:${workout.id}`,(req,res)=>{
-//   res.render('changeForm',{
-//     loggedIn: req.session.loggedIn,
-//   });
-// });
+router.get('/changeWorkout',(req,res)=>{
+  res.render('changeForm',{
+    loggedIn: req.session.loggedIn,
+    id:req.session.id,
+  });
+});
 
 router.get('/location', withAuth, async (req, res) => {
   try {
