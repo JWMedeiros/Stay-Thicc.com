@@ -12,8 +12,9 @@
             <p>{{workout.workout_weight}}</p>
             <p>{{workout.sets}}</p>
             <p>{{workout.reps}}</p>
-            <button class='{{workout.id}} update'>Update</button>
-            <button class='{{workout.id}} delete'>Delete</button>
+            <button>Update {{workout.id}}</button>
+            <button>Delete {{workout.id}}</button>
+        </div>
     {{/each}}
 </section>
     {{else}}

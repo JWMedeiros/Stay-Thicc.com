@@ -21,11 +21,9 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    //Destroy specified workout
-    //let result=
     await Workout.destroy({
       where:{
-        id:req.params.id,
+        id:req.params.id.slice(1),
       },
     });
   } catch (err) {
@@ -34,18 +32,21 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
+  let num=parseInt(req.params.id.slice(1));
+  console.log('\n'+num+'\n');
+  console.log(typeof(num));
   try {
     Workout.update({
       name: req.body.name,
       weekday: req.body.weekday,
       type: req.body.type,
-      workout_weight: req.body.type,
-      reps: req.body.reps,
-      sets: req.body.sets,
+      workout_weight: parseInt(req.body.type),
+      reps: parseInt(req.body.reps),
+      sets: parseInt(req.body.sets),
     },
     {
       where:{
-        id:req.params.id,
+        id:num,
       }
     })
       .then((dbUserData) => {
@@ -55,20 +56,18 @@ router.put('/:id', withAuth, async (req, res) => {
         }
         res.json(dbUserData);
       });
-    // // Get all workouts
-    // const workoutData = await Workout.findAll({});
-
-    // // Serialize data so the template can read it
-    // const workouts = workoutData.map((workout) => workout.get({ plain: true }));
-
-    // // Pass serialized data and session flag into template
-    // res.render('workout', {
-    //   workouts,
-    //   loggedIn: req.session.loggedIn,
-    // });
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/changeWorkout/:id',withAuth,async (req,res)=>{
+  console.log('Inside Change Workout! ID');
+  console.log(req.params.id.slice(1));
+  res.render('changeForm',{
+    loggedIn:req.session.loggedIn,
+    id:parseInt(req.params.id.slice(1)),
+  });
 });
 
 module.exports = router;
