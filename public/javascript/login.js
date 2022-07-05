@@ -1,9 +1,5 @@
-//const { response } = require("express");
-console.log('\n\n\nlogin.js');
-
 const loginFormHandler = async function (event) {
   event.preventDefault();
-  console.log('Inside logformhandler');
   const emailEl = document.querySelector('#email-login');
   const passwordEl = document.querySelector('#password-login');
   fetch('/api/user/login', {
@@ -15,13 +11,11 @@ const loginFormHandler = async function (event) {
     headers: { 'Content-Type': 'application/json' },
   })
     .then(function (res){
-      console.log('successful response'+res);
       return res.json();
     })
     .then(function () {
       //Jump to the workout page
-      console.log('GOING TO WORKOUT');
-      document.location.replace('/api/workout');
+      document.location.replace('/workout');
     })
     .catch((err) => console.log('you messed up'+err));
 };

@@ -2,54 +2,18 @@ const router = require('express').Router();
 const { Workout } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
-  try {
-    console.log('\n\n');
-    console.log(req.session.loggedIn);
-    console.log(req.session.userId);
-    // Get all workouts
-    const workoutData = await Workout.findAll({
-      where: {
-        user_id: req.session.userId,
-      },
-    });
-
-    // Serialize data so the template can read it
-    const workouts = workoutData.map((workout) =>
-      workout.get({ plain: true })
-    );
-
-    // Pass serialized data and session flag into template
-    res.render('workout', {
-      workouts,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.post('/', withAuth, async (req, res) => {
   try {
-    await Workout.create({
+    Workout.create({
       name: req.body.name,
       weekday: req.body.weekday,
       type: req.body.type,
-      workout_weight: req.body.type,
+      workout_weight: req.body.workout_weight,
       reps: req.body.reps,
       sets: req.body.sets,
       user_id: req.session.userId,
     });
-    const workoutData = await Workout.findAll({});
-
-    // Serialize data so the template can read it
-    const workouts = workoutData.map((workout) => workout.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('workout', {
-      workouts,
-      loggedIn: req.session.loggedIn,
-    });
+    console.log('WORKOUT CREATED');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -64,21 +28,6 @@ router.delete('/:id', withAuth, async (req, res) => {
         id:req.params.id,
       },
     });
-    // if (result<){
-
-    // }
-
-    // Get all workouts
-    const workoutData = await Workout.findAll({});
-
-    // Serialize data so the template can read it
-    const workouts = workoutData.map((workout) => workout.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('workout', {
-      workouts,
-      loggedIn: req.session.loggedIn,
-    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -86,7 +35,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    await Workout.update({
+    Workout.update({
       name: req.body.name,
       weekday: req.body.weekday,
       type: req.body.type,
@@ -98,18 +47,25 @@ router.put('/:id', withAuth, async (req, res) => {
       where:{
         id:req.params.id,
       }
-    });
-    // Get all workouts
-    const workoutData = await Workout.findAll({});
+    })
+      .then((dbUserData) => {
+        if (!dbUserData) {
+          res.status(404).json({ message: 'No Workout found with this id' });
+          return;
+        }
+        res.json(dbUserData);
+      });
+    // // Get all workouts
+    // const workoutData = await Workout.findAll({});
 
-    // Serialize data so the template can read it
-    const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+    // // Serialize data so the template can read it
+    // const workouts = workoutData.map((workout) => workout.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('workout', {
-      workouts,
-      loggedIn: req.session.loggedIn,
-    });
+    // // Pass serialized data and session flag into template
+    // res.render('workout', {
+    //   workouts,
+    //   loggedIn: req.session.loggedIn,
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
