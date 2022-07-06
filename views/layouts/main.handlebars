@@ -18,13 +18,14 @@
         <nav class="navbar">
             <ul>
                 {{#if loggedIn}}
+                <h3>Welcome back!!</h3>
                 <li class="nav-item"><a class="nav-link" href="/workout">Workout</a></li>
                 <li class="nav-item"><a class="nav-link" href="/location">Location</a></li>
                 <li class="nav-item"><a class="nav-link" href="/user">User Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="logout-link">Logout</a></li>
-                <h3>Welcome back!!</h3>
+
                 {{else}}
-                <li class="li-inline nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                 {{/if}}
             </ul>
         </nav>

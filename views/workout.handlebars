@@ -1,23 +1,23 @@
 <!--Section form for search parameters-->
 {{#if loggedIn}}
-<button type="button" id = "workCreate" class="btn btn-dark create">Add a Workout</button>
+<button type="button" id="workCreate" class="btn btn-dark create">Add a Workout</button>
 
 <!--Container for Location Cards-->
 <section id="workContainer">
     {{#each workouts as |workout|}}
-        <div class="workout col-md-4">
-            <h3>{{workout.name}}</h3>
-            <p>{{workout.weekday}}</p> 
-            <p>{{workout.type}}</p>
-            <p>{{workout.workout_weight}}</p>
-            <p>{{workout.sets}}</p>
-            <p>{{workout.reps}}</p>
-            <button>Update {{workout.id}}</button>
-            <button>Delete {{workout.id}}</button>
-        </div>
+    <div class="workout">
+        <h3>workout Name: {{workout.name}}</h3>
+        <p>Weekday: {{workout.weekday}}</p>
+        <p>Type: {{workout.type}}</p>
+        <p>Workout Weight: {{workout.workout_weight}}</p>
+        <p>Workout Sets: {{workout.sets}}</p>
+        <p>Workout Reps: {{workout.reps}}</p>
+        <button class="btn">Update {{workout.id}}</button>
+        <button class="btn">Delete {{workout.id}}</button>
+    </div>
     {{/each}}
 </section>
-    {{else}}
-        <h2>Please Login to the website to view/add/change your workouts!</h2>
-    {{/if}}
+{{else}}
+<h2>Please Login to the website to view/add/change your workouts!</h2>
+{{/if}}
 <script src="/javascript/workout.js"></script>
