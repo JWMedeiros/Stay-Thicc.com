@@ -30,7 +30,10 @@ h6 {
     color: var(--tertiary);
     line-height: 1.25;
     letter-spacing: 1px;
+
 }
+
+
 
 h2 a:visited {
     color: var(--tertiary);
@@ -91,8 +94,13 @@ main {
 
 .nav-item:hover {
     color: var(--dark);
+
 }
 
+.nav-item {
+    margin-right: 30px;
+
+}
 
 
 .center {
@@ -100,4 +108,56 @@ main {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+.workout {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    color: var(--secondary);
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+}
+
+/* CARDS */
+.card {
+    margin: 0 0 25px 0;
+    border-radius: var(--border-radius);
+}
+
+.card-header {
+    color: var(--secondary);
+    background-color: var(--dark);
+    padding: 1%;
+}
+
+.card-body {
+    padding: 1%;
+    color: var(--dark);
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+        position: relative;
+    }
+
+    header h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-item {
+        margin: 0 25px;
+    }
 }
