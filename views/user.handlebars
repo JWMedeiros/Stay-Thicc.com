@@ -1,0 +1,12 @@
+{{#if loggedIn}}
+<section id="userInfo">
+    <div class="location col-md-4">
+        <h3>User#: {{user.id}}</h3>
+        <h4>Name: {{user.first_name}} {{user.last_name}}</h4>
+        <p>Email Address: {{user.email}}</p>
+        <p>Current Weight: {{user.user_weight}}</p>
+    </div>
+    <h4>Remember to exercise and get Thicc!</h4>
+    <img src="images/stayThicc.png" alt="stayThicc" class="center">
+</section>
+{{/if}}

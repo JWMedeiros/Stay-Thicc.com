@@ -40,7 +40,7 @@ router.put('/:id', withAuth, async (req, res) => {
       name: req.body.name,
       weekday: req.body.weekday,
       type: req.body.type,
-      workout_weight: parseInt(req.body.type),
+      workout_weight: parseInt(req.body.workout_weight),
       reps: parseInt(req.body.reps),
       sets: parseInt(req.body.sets),
     },

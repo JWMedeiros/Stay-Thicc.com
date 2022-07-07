@@ -2,6 +2,7 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Workout } = require('../models');
 const { Location } = require('../models');
+const { User } = require('../models');
 
 router.get('/', (req, res) => {
   res.render('landing');
@@ -40,6 +41,29 @@ router.get('/workout', withAuth, async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('workout', {
       workouts,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/user', withAuth, async (req, res) => {
+  try {
+    // Get loggedIn User
+    const userData = await User.findByPk(req.session.userId);
+
+    if (!userData){
+      res.status(404).json({message:'No User with your ID found'});
+    }
+
+    // Serialize data so the template can read it
+    const user = userData.get({ plain: true });
+
+    // Pass serialized data and session flag into template
+    console.log(user);
+    res.render('user', {
+      user,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
