@@ -14,10 +14,10 @@
 and view the gyms near you in that city.
 
 ## [Installation](#table-of-contents)
-No Installation required
+To install locally, clone the code, run npm install in the directory containing the code, and to seed the location database run node ./seeds/seed.js
 
 ## [Usage](#table-of-contents)
-In order to use the website, please visit the deployed application at:
+In order to use the website, please visit the deployed application at: https://keep-thicc.herokuapp.com/
 
 ## [License](#license)
 Open software license
